@@ -10,4 +10,8 @@ for (let i = 0; i < 10 && playerScore <= 3 && computerScore <= 3; i++) {
       Math.floor(Math.random() * computerSelection.length)
     ].toLowerCase();
   }
+  function getPlayerSelection() {
+    let playerSelection = prompt("choose your weapon!!");
+    return playerSelection.toLowerCase();
+  }
 }
