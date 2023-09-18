@@ -1,7 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
 
-for (let i = 0; i < 10 && playerScore <= 3 && computerScore <= 3; i++) {
+for (let i = 0; i < 5 && playerScore <= 3 && computerScore <= 3; i++) {
   const player = getPlayerSelection();
   const computer = getComputerSelection();
   function getComputerSelection() {
@@ -11,67 +11,51 @@ for (let i = 0; i < 10 && playerScore <= 3 && computerScore <= 3; i++) {
     ].toLowerCase();
   }
   function getPlayerSelection() {
-    let playerSelection = prompt("choose your weapon!!");
-    return playerSelection.toLowerCase();
+    let player = prompt("choose your weapon!!");
+    return player;
   }
-  function PlayRound(computerSelection, playerSelection) {
-    if (
-      playerSelection === "rock" ||
-      playerSelection === "paper" ||
-      playerSelection === "scissors"
-    ) {
-      if (computerSelection === playerSelection) {
+  function PlayRound(computer, player) {
+    if (player === "rock" || player === "paper" || player === "scissors") {
+      if (computer === player) {
         console.log(`tie ... 
-                computer :${computerSelection}, computer score :${computerScore}
-                player selection : ${playerSelection} , player score : ${playerScore}`);
-      } else if (computerSelection === "paper" && playerSelection === "rock") {
+                computer :${computer}, computer score :${computerScore}
+                player selection : ${player} , player score : ${playerScore}`);
+      } else if (computer === "paper" && player === "rock") {
         computerScore++;
-        console.log(`computer :${computerSelection} computer score: ${computerScore}
-            player : ${playerSelection} player score : ${playerScore}
-            You loss ! ${computerSelection} beats ${playerSelection} `);
-      } else if (
-        computerSelection === "rock" &&
-        playerSelection === "scissors"
-      ) {
+        console.log(`computer :${computer} computer score: ${computerScore}
+            player : ${player} player score : ${playerScore}
+            You loss ! ${computer} beats ${player} `);
+      } else if (computer === "rock" && player === "scissors") {
         computerScore++;
-        console.log(`computer :${computerSelection} computer score: ${computerScore}
-            player : ${playerSelection} player score : ${playerScore}
-            You loss ! ${computerSelection} beats ${playerSelection} `);
-      } else if (
-        computerSelection === "scissors" &&
-        playerSelection === "paper"
-      ) {
+        console.log(`computer :${computer} computer score: ${computerScore}
+            player : ${player} player score : ${playerScore}
+            You loss ! ${computer} beats ${player} `);
+      } else if (computer === "scissors" && player === "paper") {
         computerScore++;
-        console.log(`computer :${computerSelection} computer score: ${computerScore}
-            player : ${playerSelection} player score : ${playerScore}
-            You loss ! ${computerSelection} beats ${playerSelection} `);
-      } else if (
-        computerSelection === "paper" &&
-        playerSelection === "scissors"
-      ) {
-        computerScore++;
-        console.log(`computer :${computerSelection} computer score: ${computerScore}
-            player : ${playerSelection} player score : ${playerScore}
-            You win ! ${playerSelection} beats ${computerSelection} `);
-      } else if (computerSelection === "rock" && playerSelection === "paper") {
-        computerScore++;
-        console.log(`computer :${computerSelection} computer score: ${computerScore}
-            player : ${playerSelection} player score : ${playerScore}
-            You win ! ${playerSelection} beats ${computerSelection} `);
-      } else if (
-        computerSelection === "scissors" &&
-        playerSelection === "rock"
-      ) {
-        computerScore++;
-        console.log(`computer :${computerSelection} computer score: ${computerScore}
-            player : ${playerSelection} player score : ${playerScore}
-            You win ! ${playerSelection} beats ${computerSelection} `);
+        console.log(`computer :${computer} computer score: ${computerScore}
+            player : ${player} player score : ${playerScore}
+            You loss ! ${computer} beats ${player} `);
+      } else if (computer === "paper" && player === "scissors") {
+        playerScore++;
+        console.log(`computer :${computer} computer score: ${computerScore}
+            player : ${player} player score : ${playerScore}
+            You win ! ${player} beats ${computer} `);
+      } else if (computer === "rock" && player === "paper") {
+        playerScore++;
+        console.log(`computer :${computer} computer score: ${computerScore}
+            player : ${player} player score : ${playerScore}
+            You win ! ${player} beats ${computer} `);
+      } else if (computer === "scissors" && player === "rock") {
+        playerScore++;
+        console.log(`computer :${computer} computer score: ${computerScore}
+            player : ${player} player score : ${playerScore}
+            You win ! ${player} beats ${computer} `);
       }
     } else {
       alert("Enter the right weapon !!");
     }
-    PlayRound(computerSelection, playerSelection);
   }
+  PlayRound(computer, player);
 }
 if (playerScore > computerScore) {
   console.log(
