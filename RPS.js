@@ -168,7 +168,3 @@ function getScore(computerScore, playerScore) {
   console.log(finalResult);
   return finalResult;
 }
-function showImages() {
-  if (computer === "rock") {
-  }
-}
